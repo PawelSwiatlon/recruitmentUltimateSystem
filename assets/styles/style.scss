@@ -5,3 +5,66 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+body {
+    background-color: map-get($colors, "bgColor");
+    margin: 5% 20%;
+}
+
+.section_two {
+    width: 100%;
+}
+.form {
+    width: 300px;
+    & span {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+    }
+    & button {
+        padding: 2px 20px;
+        background-color: map-get($colors, "primary")
+    }
+}
+.nameInput {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & input {
+       width: 100%;
+       margin: 10px 0;
+       padding: 8px;
+       background-color: transparent;
+       border-radius: 5px;
+       border: 1px solid map-get($colors , "secondary" );
+   }
+   & label {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size: 14px;
+    position: absolute;
+    color: map-get($colors, "secondary" );
+    transition: 0.1s linear;
+    z-index: -1;
+    }
+    & input:focus {
+        border: 1px solid map-get($colors, "primary" );
+        box-shadow: none;
+        outline: none;
+    }
+    & input:focus + label {
+        top: 20%;
+        z-index: 1;
+        background-color: map-get($colors, "bgColor");
+        color: map-get($colors, "primary" )
+    }
+    & input:not(:placeholder-shown) + label {
+        top: 20%;
+        z-index: 1;
+        background-color: map-get($colors, "bgColor");
+    }
+}
+::-webkit-input-placeholder {
+    opacity: 0;
+}

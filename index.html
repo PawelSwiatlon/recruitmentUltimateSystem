@@ -13,8 +13,14 @@
     <div class="section_two">
         <div class="form">
             <p>Zadania</p>
-            <input type="text" name="task" placeholder="Nazwa zadania">
-            <input type="text" name="price" placeholder="Kwota w PLN">
+            <div class="nameInput">
+                <input type="text" name="task" placeholder="nazwa zadania">
+                <label for="task">Nazwa zadania</label>
+            </div>
+            <div class="nameInput">
+                <input type="text" name="price" placeholder="Kwota w PLN">
+                <label for="task">Kwota w PLN</label>
+            </div>
             <span>
                 <p id="exchangeRate">1 euro = 4.8</p>
                 <button>Dodaj</button>
