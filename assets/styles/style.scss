@@ -16,12 +16,20 @@ body {
 .form {
     width: 300px;
     & span {
+        margin-top: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;    
     }
     & button {
-        padding: 2px 20px;
+        color: map-get($colors, "white" );
+        border: {
+            width: 1px;
+            style: solid;
+            color: map-get($colors, "dark" );
+            radius: 5px;
+        }
+        padding: 5px 25px;
         background-color: map-get($colors, "primary")
     }
 }
@@ -35,8 +43,12 @@ body {
        margin: 10px 0;
        padding: 8px;
        background-color: transparent;
-       border-radius: 5px;
-       border: 1px solid map-get($colors , "secondary" );
+       border: { 
+            radius: 5px;
+            width: 1px;
+            style: solid;
+            color: map-get($colors , "secondary" );
+       }
    }
    & label {
     top: 50%;
@@ -49,7 +61,11 @@ body {
     z-index: -1;
     }
     & input:focus {
-        border: 1px solid map-get($colors, "primary" );
+        border: {
+            width: 1px;
+            style: solid;
+            color: map-get($colors, "primary" );
+        }
         box-shadow: none;
         outline: none;
     }
@@ -67,4 +83,49 @@ body {
 }
 ::-webkit-input-placeholder {
     opacity: 0;
+}
+table {
+    width: 1000px;
+    margin:{
+        top: 50px;
+        bottom: 10px;
+    }
+    border-collapse: collapse;
+    text-align: left;
+    // border: 1px solid map-get($colors, "secondary");
+    border: {
+        width: 1px;
+        style: solid;
+        color: map-get($colors, "secondary");
+    }
+    & td, & th {
+        border: {
+            width: 1px;
+            style: solid;
+            color: map-get($colors, "secondary");
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 1;
+        }
+        padding: 20px;
+        color: map-get($colors, "secondary" );
+    }
+}
+.box {
+    display: flex;
+    align-items: center;
+    & span {
+        padding-left: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+    & span i {
+        padding: 0 5px;
+        margin: 2px;
+        cursor: pointer;
+    }
+    & span i:hover {
+        color: map-get($colors, "primary" )
+    }
 }

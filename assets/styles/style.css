@@ -20,6 +20,7 @@ body {
 }
 
 .form span {
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,8 +33,13 @@ body {
 }
 
 .form button {
-  padding: 2px 20px;
-  background-color: #007bff;
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #343a40;
+  border-radius: 5px;
+  padding: 5px 25px;
+  background-color: #00427d;
 }
 
 .nameInput {
@@ -56,7 +62,9 @@ body {
   padding: 8px;
   background-color: transparent;
   border-radius: 5px;
-  border: 1px solid #6c757d;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #6c757d;
 }
 
 .nameInput label {
@@ -73,7 +81,9 @@ body {
 }
 
 .nameInput input:focus {
-  border: 1px solid #007bff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #00427d;
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
@@ -83,7 +93,7 @@ body {
   top: 20%;
   z-index: 1;
   background-color: #fff;
-  color: #007bff;
+  color: #00427d;
 }
 
 .nameInput input:not(:placeholder-shown) + label {
@@ -94,5 +104,58 @@ body {
 
 ::-webkit-input-placeholder {
   opacity: 0;
+}
+
+table {
+  width: 1000px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+  text-align: left;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #6c757d;
+}
+
+table td, table th {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #6c757d;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1;
+  padding: 20px;
+  color: #6c757d;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box span {
+  padding-left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.box span i {
+  padding: 0 5px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.box span i:hover {
+  color: #00427d;
 }
 /*# sourceMappingURL=style.css.map */
