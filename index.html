@@ -7,7 +7,35 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
-    
+    <div class="section_one">
+ 
+    </div>
+    <div class="section_two">
+        <div class="form">
+            <p>Zadania</p>
+            <input type="text" name="task" placeholder="Nazwa zadania">
+            <input type="text" name="price" placeholder="Kwota w PLN">
+            <span>
+                <p id="exchangeRate">1 euro = 4.8</p>
+                <button>Dodaj</button>
+            </span>
+        </div>
+        <table>
+            <tr>
+                <th>Nazwa zadania</th>
+                <th>Kwota w PLN</th>
+                <th>Kwota w EUR</th>
+                <th>Opcje</th>
+            </tr>
+            <tr>
+                <td id="task">Zadania 1</td>
+                <td id="amount_pln">2121 PLN</td>
+                <td id="amount_eur">122 EUR</td>
+                <td id="delete">usuń</td>
+            </tr>
+        </table>
+        <p id="sum">Suma 2121PLN (122 Euro)</p>
+    </div>   
     <script src="assets/scripts/main.js"></script>
 </body>
 </html>
