@@ -15,71 +15,77 @@
         <div class="form">
             <p>Zadania</p>
             <div class="nameInput">
-                <input type="text" name="task" placeholder="nazwa zadania">
+                <input type="text" name="task" id="task" placeholder="nazwa zadania">
                 <label for="task">Nazwa zadania</label>
             </div>
             <div class="nameInput">
-                <input type="text" name="price" placeholder="Kwota w PLN">
+                <input type="number" name="price" id="price" placeholder="Kwota w PLN">
                 <label for="task">Kwota w PLN</label>
             </div>
             <span>
                 <p id="exchangeRate">1 euro = 4.8</p>
-                <button>Dodaj</button>
+                <button onclick="getData()">Dodaj</button>
             </span>
         </div>
         <table>
-            <tr>
-                <th>
-                    <div class="box">
-                        <p>Nazwa zadania</p>
-                        <span>
-                            <i class="fas fa-sort-up"></i>
-                            <i class="fas fa-sort-down"></i>
-                        </span>
-                    </div>
-                </th>
-                <th>
-                    <div class="box">
-                        <p>Kwota w PLN</p>
-                        <span>
-                            <i class="fas fa-sort-up"></i>
-                            <i class="fas fa-sort-down"></i>
-                        </span>
-                    </div>
-                </th>
-                <th>
-                    <div class="box">
-                        <p>Kwota w EUR</p>
-                        <span>
-                            <i class="fas fa-sort-up"></i>
-                            <i class="fas fa-sort-down"></i>
-                        </span>
-                    </div>
-                </th>
-                <th>
-                    <div class="box">
-                        <p>Opcje</p>
-                        <span>
-                            <i class="fas fa-sort-up"></i>
-                            <i class="fas fa-sort-down"></i>
-                        </span>
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <td id="task">Zadania 1</td>
-                <td id="amount_pln">2121 PLN</td>
-                <td id="amount_eur">122 EUR</td>
-                <td id="delete"><i class="fas fa-trash"></i> usuń</td>
-            </tr>
-            <tr>
-                <td id="task">Zadania 1</td>
-                <td id="amount_pln">2121 PLN</td>
-                <td id="amount_eur">122 EUR</td>
-                <td id="delete"><i class="fas fa-trash"></i> usuń</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>
+                        <div class="box">
+                            <p>Nazwa zadania</p>
+                            <span>
+                                <i class="fas fa-sort-up"></i>
+                                <i class="fas fa-sort-down"></i>
+                            </span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="box">
+                            <p>Kwota w PLN</p>
+                            <span>
+                                <i class="fas fa-sort-up"></i>
+                                <i class="fas fa-sort-down"></i>
+                            </span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="box">
+                            <p>Kwota w EUR</p>
+                            <span>
+                                <i class="fas fa-sort-up"></i>
+                                <i class="fas fa-sort-down"></i>
+                            </span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="box">
+                            <p>Opcje</p>
+                            <span>
+                                <i class="fas fa-sort-up"></i>
+                                <i class="fas fa-sort-down"></i>
+                            </span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="list">
+                <tr>
+                    <td id="task">Zadania 1</td>
+                    <td id="amount_pln">2121 PLN</td>
+                    <td id="amount_eur">122 EUR</td>
+                    <td id="delete"><i class="fas fa-trash"></i> usuń</td>
+                </tr>
+                <tr>
+                    <td id="task">Zadania 1</td>
+                    <td id="amount_pln">2121 PLN</td>
+                    <td id="amount_eur">122 EUR</td>
+                    <td id="delete"><i class="fas fa-trash"></i> usuń</td>
+                </tr>
+                <tr id="test"></tr>
+
+            </tbody>
         </table>
-        <p id="sum">Suma 2121PLN (122 Euro)</p>
+        <p id="sum">Suma: 2121PLN (122 Euro)</p>
     </div>   
     <script src="assets/scripts/main.js"></script>
 </body>

@@ -86,7 +86,7 @@ body {
 }
 table {
     width: 1000px;
-    margin:{
+    margin: {
         top: 50px;
         bottom: 10px;
     }
@@ -126,6 +126,12 @@ table {
         cursor: pointer;
     }
     & span i:hover {
-        color: map-get($colors, "primary" )
+        color: map-get($colors, "primary" );
     }
+}
+#delete:hover {
+    cursor: pointer;
+}
+#delete:hover i {
+    color: map-get($colors, "primary" );
 }

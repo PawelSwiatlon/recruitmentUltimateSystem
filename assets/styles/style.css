@@ -158,4 +158,12 @@ table td, table th {
 .box span i:hover {
   color: #00427d;
 }
+
+#delete:hover {
+  cursor: pointer;
+}
+
+#delete:hover i {
+  color: #00427d;
+}
 /*# sourceMappingURL=style.css.map */
