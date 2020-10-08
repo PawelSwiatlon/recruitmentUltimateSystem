@@ -129,6 +129,14 @@ table td, table th {
   color: #6c757d;
 }
 
+table td span {
+  padding: 5px;
+}
+
+table td span:hover {
+  color: #00427d;
+}
+
 .box {
   display: -webkit-box;
   display: -ms-flexbox;

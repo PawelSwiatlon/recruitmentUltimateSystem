@@ -111,6 +111,12 @@ table {
         padding: 20px;
         color: map-get($colors, "secondary" );
     }
+    & td span {
+        padding: 5px;
+    }
+    & td span:hover {
+        color: map-get($colors, "primary" );
+    }
 }
 .box {
     display: flex;

@@ -34,7 +34,7 @@
                         <div class="box">
                             <p>Nazwa zadania</p>
                             <span>
-                                <i class="fas fa-sort-up"></i>
+                                <i class="fas fa-sort-up" onclick="sortByIdUP()"></i>
                                 <i class="fas fa-sort-down"></i>
                             </span>
                         </div>
@@ -60,32 +60,20 @@
                     <th>
                         <div class="box">
                             <p>Opcje</p>
-                            <span>
-                                <i class="fas fa-sort-up"></i>
-                                <i class="fas fa-sort-down"></i>
-                            </span>
                         </div>
                     </th>
                 </tr>
             </thead>
             <tbody id="list">
-                <tr>
-                    <td id="task">Zadania 1</td>
-                    <td id="amount_pln">2121 PLN</td>
-                    <td id="amount_eur">122 EUR</td>
+                <!-- <tr>
+                    <td id="task">Nazwa zadania</td>
+                    <td id="amount_pln">Kwota PLN</td>
+                    <td id="amount_eur">Kwota EUR</td>
                     <td id="delete"><i class="fas fa-trash"></i> usuń</td>
-                </tr>
-                <tr>
-                    <td id="task">Zadania 1</td>
-                    <td id="amount_pln">2121 PLN</td>
-                    <td id="amount_eur">122 EUR</td>
-                    <td id="delete"><i class="fas fa-trash"></i> usuń</td>
-                </tr>
-                <tr id="test"></tr>
-
+                </tr> -->
             </tbody>
         </table>
-        <p id="sum">Suma: 2121PLN (122 Euro)</p>
+        <p id="sum"></p>
     </div>   
     <script src="assets/scripts/main.js"></script>
 </body>
