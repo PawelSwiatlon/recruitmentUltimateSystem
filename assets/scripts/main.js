@@ -82,7 +82,27 @@ function deleteDask(id) {
     taskList.splice(id, 1);
     createElements();
 }
-function sortByIdUP() {
-    taskList.sort();
+function priceUp() {
+    taskList = taskList.sort(function (a,b) {
+        return b.price - a.price;
+    });
     createElements();
+}
+function priceDown() {
+    taskList = taskList.sort(function (a,b) {
+        return a.price - b.price;
+    });
+    createElements();
+}
+function taskSortUp() {
+    taskList = taskList.sort(function (a,b) {
+        return a.task.localeCompare(b.task);
+    });
+    createElements(); 
+}
+function taskSortDown() {
+    taskList = taskList.sort(function (a,b) {
+        return b.task.localeCompare(a.task);
+    });
+    createElements(); 
 }
