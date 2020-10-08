@@ -15,15 +15,16 @@
         <div class="form">
             <p>Zadania</p>
             <div class="nameInput">
-                <input type="text" name="task" id="task" placeholder="nazwa zadania">
+                <input type="text" name="task" id="task" placeholder="nazwa zadania" minlength="5">
                 <label for="task">Nazwa zadania</label>
             </div>
+            <p id="taskEror"></p>
             <div class="nameInput">
                 <input type="number" name="price" id="price" placeholder="Kwota w PLN">
                 <label for="task">Kwota w PLN</label>
             </div>
             <span>
-                <p id="exchangeRate">1 euro = 4.8</p>
+                <p id="eur">1 euro = x.xx</p>
                 <button onclick="getData()">Dodaj</button>
             </span>
         </div>

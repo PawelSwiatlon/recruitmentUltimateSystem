@@ -81,11 +81,20 @@ body {
         background-color: map-get($colors, "bgColor");
     }
 }
-::-webkit-input-placeholder {
+::-webkit-input-placeholder{
+    opacity: 0;
+}
+::-moz-placeholder{
+    opacity: 0;
+}
+:-moz-placeholder{
+    opacity: 0;
+}
+::-ms-input-placeholder {
     opacity: 0;
 }
 table {
-    width: 1000px;
+    width: 100%;
     margin: {
         top: 50px;
         bottom: 10px;
@@ -140,4 +149,8 @@ table {
 }
 #delete:hover i {
     color: map-get($colors, "primary" );
+}
+#taskEror {
+    font-size: 14px;
+    color: map-get($colors , "danger" );
 }

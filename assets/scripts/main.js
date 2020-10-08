@@ -1,15 +1,30 @@
 // Lista zadań
 let taskList = [
     // Przykłady zadań
-    {task: "zadanie 1", price: "2000"},
-    {task: "zadanie 2", price: "500"},
-    {task: "zadanie 3", price: "1500"}
+    {task: "zadanie 1", price: "100"},
+    {task: "zadanie 2", price: "2000"},
+    {task: "zadanie 3", price: "850"}
 ];
-// Pobranie elementów lista zadań i sum (całkowity koszt zadań)
+// Pobranie elementów lista zadań, sum (całkowity koszt zadań) i euro
 let list = document.getElementById("list");
 let sum = document.getElementById("sum");
+const eur = document.getElementById("eur");
+// URL do api z aktualną ceną EUR/PLN
+const url = 'https://api.exchangeratesapi.io/latest?base=EUR';
+let euro = 0;
+// Funkcja asynchroniczna zwracająca wartość 1 euro w przeliczeniu na PLN
+async function getapi(url){
+    const response = await fetch(url);
+    // Zapisanie danych w formacje JSON
+    let data = await response.json();
+    eur.innerHTML = `1 euro = ${data.rates.PLN}`;
+    euro = data.rates.PLN;
+}
+// Wywołanie funkcji sprawdzjącej kurs euro
+getapi(url);
 // Wywołanie fukncji po załadowaniu się strony
 window.onload = function(){
+    // Wywołanie listy zadań
     createElements();
 }
 // Pobieranie danych od użytkownika (Nazwa zadania "task" i Ceny "price")
@@ -18,11 +33,19 @@ function getData() {
     let price = document.getElementById("price").value;
     // Sprawdzenie czy zadanie ma min 5 znaków
     if(task.length >= 5){
+        if(price == 0) {
+            price = 0;
+        }
         // Resetowanie pól nazwy zadania i ceny zadania
         document.getElementById("task").value = "";
         document.getElementById("price").value = "";
         // Dodanie nowego zadania do listy zadań 
         taskList.push({task,price});
+        // Usunięcie komunikatu o błędzie nazwy zadania jeśli urzytkownik spełnił wymagań
+        document.getElementById("taskEror").innerHTML = " ";
+    }else{
+        // Komunikat o błędzie nazwy zadania jeśli urzytkownik nie spełnił wymagań
+        document.getElementById("taskEror").innerHTML = "Nazwa zadania musi składać się z minimum 5 znaków.";
     }
     // Tworzenie nowego elementu - wypisanie nowego zadania na stronie
     createElements();
@@ -37,14 +60,14 @@ function createElements() {
     for(i in taskList) {
         let tr = document.createElement("tr");
         // Przekazanie danych do tworzenia elementu
-        createList(tr, [i,taskList[i].task, taskList[i].price, (taskList[i].price/4.56).toFixed(2)]);
+        createList(tr, [i,taskList[i].task, taskList[i].price, (taskList[i].price/euro).toFixed(2)]);
         // Wypisanie zadania na stronie
         list.appendChild(tr);
         // Zczytanie ceny danego zadaia
         sum_number += parseInt(taskList[i].price);
     }
     // Wypisanei sumy zadań na stronie
-    sum.appendChild(document.createTextNode(`Suma: ${sum_number} (${(sum_number/4.56).toFixed(2)} EUR)`));
+    sum.appendChild(document.createTextNode(`Suma: ${sum_number} (${(sum_number/euro).toFixed(2)} EUR)`));
 }
 // Funkcja odpowiedzialna za tworzenie elementów td wraz z zawartością
 function createList(tr, data) {
@@ -82,24 +105,28 @@ function deleteDask(id) {
     taskList.splice(id, 1);
     createElements();
 }
+// Sortowanie ceny od największej
 function priceUp() {
     taskList = taskList.sort(function (a,b) {
         return b.price - a.price;
     });
     createElements();
 }
+// Sortowanie ceny od najmniejszej
 function priceDown() {
     taskList = taskList.sort(function (a,b) {
         return a.price - b.price;
     });
     createElements();
 }
+// Sortowanie zadań od A - Z
 function taskSortUp() {
     taskList = taskList.sort(function (a,b) {
         return a.task.localeCompare(b.task);
     });
     createElements(); 
 }
+// Sortowanie zadań od Z - A
 function taskSortDown() {
     taskList = taskList.sort(function (a,b) {
         return b.task.localeCompare(a.task);
