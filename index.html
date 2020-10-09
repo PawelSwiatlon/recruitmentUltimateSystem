@@ -5,26 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paweł Światłoń - zadanie rekrutacyjne</title>
     <link rel="stylesheet" href="assets/styles/style.css">
-    <script src="https://kit.fontawesome.com/5e18a30fcb.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="section_one">
- 
+        <div class="nameInput">
+            <input type="text" name="nazwaFirmy" id="nazwaFirmy" placeholder=" " minlength="5">
+            <label for="nazwaFirmy">Nazwa firmy</label>
+        </div>
+        <div class="nameInput">
+            <input type="text" name="pracownik" id="Pracownik" placeholder=" " minlength="5">
+            <label for="pracownik">Pracownik</label>
+        </div>
     </div>
+    <div class="line"></div>
     <div class="section_two">
         <div class="form">
-            <p>Zadania</p>
+            <p class="font_dark">Zadania</p>
             <div class="nameInput">
-                <input type="text" name="task" id="task" placeholder="nazwa zadania" minlength="5">
+                <input type="text" name="task" id="task" placeholder=" " minlength="5">
                 <label for="task">Nazwa zadania</label>
             </div>
             <p id="taskEror"></p>
             <div class="nameInput">
-                <input type="number" name="price" id="price" placeholder="Kwota w PLN">
+                <input type="number" name="price" id="price" placeholder=" ">
                 <label for="task">Kwota w PLN</label>
             </div>
             <span>
-                <p id="eur">1 euro = x.xx</p>
+                <p id="eur" class="font_dark">1 euro = x.xx</p>
                 <button onclick="getData()">Dodaj</button>
             </span>
         </div>
@@ -35,8 +42,8 @@
                         <div class="box">
                             <p>Nazwa zadania</p>
                             <span>
-                                <i class="fas fa-sort-up" onclick="taskSortUp()"></i>
-                                <i class="fas fa-sort-down" onclick="taskSortDown()"></i>
+                                <img src="/assets/images/icons/sort-up-solid.svg" alt="" onclick="taskSortUp()">
+                                <img src="/assets/images/icons/sort-down-solid.svg" alt="" onclick="taskSortDown()">
                             </span>
                         </div>
                     </th>
@@ -44,8 +51,8 @@
                         <div class="box">
                             <p>Kwota w PLN</p>
                             <span>
-                                <i class="fas fa-sort-up" onclick="priceUp()"></i>
-                                <i class="fas fa-sort-down" onclick="priceDown()"></i>
+                                <img src="/assets/images/icons/sort-up-solid.svg" alt="" onclick="priceUp()">
+                                <img src="/assets/images/icons/sort-down-solid.svg" alt="" onclick="priceDown()">
                             </span>
                         </div>
                     </th>
@@ -53,8 +60,8 @@
                         <div class="box">
                             <p>Kwota w EUR</p>
                             <span>
-                                <i class="fas fa-sort-up" onclick="priceUp()"></i>
-                                <i class="fas fa-sort-down" onclick="priceDown()"></i>
+                                <img src="/assets/images/icons/sort-up-solid.svg" alt="" onclick="priceUp()">
+                                <img src="/assets/images/icons/sort-down-solid.svg" alt="" onclick="priceDown()">
                             </span>
                         </div>
                     </th>

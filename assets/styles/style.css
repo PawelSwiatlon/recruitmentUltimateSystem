@@ -1,14 +1,30 @@
+@font-face {
+  font-family: SansPro;
+  src: url(/assets/fonts/SourceSansPro-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: SansPro;
 }
 
 body {
   background-color: #fff;
-  margin: 5% 20%;
+  margin: 5% 336px;
+}
+
+.section_one {
+  width: 100%;
+}
+
+.line {
+  width: 280px;
+  height: 1px;
+  margin: 42px 0;
+  background-color: #A1A1A1;
 }
 
 .section_two {
@@ -16,7 +32,7 @@ body {
 }
 
 .form {
-  width: 300px;
+  width: 276px;
 }
 
 .form span {
@@ -32,14 +48,19 @@ body {
           align-items: center;
 }
 
+.form span p {
+  font-size: 14px;
+}
+
 .form button {
+  width: 92px;
+  height: 30px;
   color: #fff;
   border-width: 1px;
   border-style: solid;
-  border-color: #343a40;
+  border-color: #4A4A4A;
   border-radius: 5px;
-  padding: 5px 25px;
-  background-color: #00427d;
+  background-color: #00447c;
 }
 
 .nameInput {
@@ -57,14 +78,15 @@ body {
 }
 
 .nameInput input {
-  width: 100%;
+  width: 276px;
+  height: 30px;
   margin: 10px 0;
   padding: 8px;
   background-color: transparent;
-  border-radius: 5px;
+  border-radius: 3px;
   border-width: 1px;
   border-style: solid;
-  border-color: #6c757d;
+  border-color: #E1E1E1;
 }
 
 .nameInput label {
@@ -74,7 +96,7 @@ body {
   left: 10px;
   font-size: 14px;
   position: absolute;
-  color: #6c757d;
+  color: #939393;
   -webkit-transition: 0.1s linear;
   transition: 0.1s linear;
   z-index: -1;
@@ -83,7 +105,7 @@ body {
 .nameInput input:focus {
   border-width: 1px;
   border-style: solid;
-  border-color: #00427d;
+  border-color: #00447c;
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
@@ -93,7 +115,7 @@ body {
   top: 20%;
   z-index: 1;
   background-color: #fff;
-  color: #00427d;
+  color: #00447c;
 }
 
 .nameInput input:not(:placeholder-shown) + label {
@@ -119,34 +141,43 @@ body {
 }
 
 table {
-  width: 100%;
+  width: 702px;
   margin-top: 50px;
   margin-bottom: 10px;
   border-collapse: collapse;
   text-align: left;
   border-width: 1px;
   border-style: solid;
-  border-color: #6c757d;
+  border-color: #D6E2F5;
 }
 
 table td, table th {
   border-width: 1px;
   border-style: solid;
-  border-color: #6c757d;
+  border-color: #D6E2F5;
   border-left: 0;
   border-right: 0;
   border-top: 0;
   border-bottom: 1;
-  padding: 20px;
-  color: #6c757d;
+  font-size: 14px;
+  padding: 18px;
+  color: #4F4F4F;
 }
 
 table td span {
   padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-table td span:hover {
-  color: #00427d;
+table td span img {
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
 }
 
 .box {
@@ -156,6 +187,7 @@ table td span:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 14px;
 }
 
 .box span {
@@ -169,26 +201,22 @@ table td span:hover {
           flex-direction: column;
 }
 
-.box span i {
-  padding: 0 5px;
+.box span img {
   margin: 2px;
+  width: 6px;
+  height: 8px;
   cursor: pointer;
-}
-
-.box span i:hover {
-  color: #00427d;
 }
 
 #delete:hover {
   cursor: pointer;
 }
 
-#delete:hover i {
-  color: #00427d;
-}
-
 #taskEror {
   font-size: 14px;
-  color: #d9534f;
+}
+
+.font_dark {
+  color: #4A4A4A;
 }
 /*# sourceMappingURL=style.css.map */

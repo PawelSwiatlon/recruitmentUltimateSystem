@@ -1,27 +1,43 @@
 @import "colors";
+@import "fonts";
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: SansPro;
 }
 body {
     background-color: map-get($colors, "bgColor");
-    margin: 5% 20%;
+    margin: 5% 336px;
+}
+.section_one {
+    width: 100%;
 }
 
+.line {
+    width: 280px;
+    height: 1px;
+    margin: 42px 0;
+    background-color: map-get($colors , "gray" );
+}
+//section two
 .section_two {
     width: 100%;
 }
 .form {
-    width: 300px;
+    width: 276px;
     & span {
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;    
     }
+    & span p {
+        font-size: 14px;
+    }
     & button {
+        width: 92px;
+        height: 30px;
         color: map-get($colors, "white" );
         border: {
             width: 1px;
@@ -29,7 +45,6 @@ body {
             color: map-get($colors, "dark" );
             radius: 5px;
         }
-        padding: 5px 25px;
         background-color: map-get($colors, "primary")
     }
 }
@@ -39,12 +54,13 @@ body {
     flex-direction: column;
     justify-content: center;
     & input {
-       width: 100%;
+       width: 276px;
+       height: 30px;
        margin: 10px 0;
        padding: 8px;
        background-color: transparent;
        border: { 
-            radius: 5px;
+            radius: 3px;
             width: 1px;
             style: solid;
             color: map-get($colors , "secondary" );
@@ -56,7 +72,7 @@ body {
     left: 10px;
     font-size: 14px;
     position: absolute;
-    color: map-get($colors, "secondary" );
+    color: map-get($colors, "light" );
     transition: 0.1s linear;
     z-index: -1;
     }
@@ -94,7 +110,7 @@ body {
     opacity: 0;
 }
 table {
-    width: 100%;
+    width: 702px;
     margin: {
         top: 50px;
         bottom: 10px;
@@ -105,52 +121,56 @@ table {
     border: {
         width: 1px;
         style: solid;
-        color: map-get($colors, "secondary");
+        color: map-get($colors, "borderTable");
     }
     & td, & th {
         border: {
             width: 1px;
             style: solid;
-            color: map-get($colors, "secondary");
+            color: map-get($colors, "borderTable");
             left: 0;
             right: 0;
             top: 0;
             bottom: 1;
         }
-        padding: 20px;
-        color: map-get($colors, "secondary" );
+        font-size: 14px;
+        padding: 18px;
+        color: map-get($colors, "fontsTable" );
     }
     & td span {
         padding: 5px;
+        display: flex;
+        align-items: center;
     }
-    & td span:hover {
-        color: map-get($colors, "primary" );
+    & td span img {
+        width: 15px;
+        height: 15px;
+        margin-right: 3px;
     }
 }
 .box {
     display: flex;
     align-items: center;
+    font-size: 14px;
     & span {
         padding-left: 5px;
         display: flex;
         flex-direction: column;
     }
-    & span i {
-        padding: 0 5px;
+    & span img {
         margin: 2px;
+        width: 6px;
+        height: 8px;
         cursor: pointer;
-    }
-    & span i:hover {
-        color: map-get($colors, "primary" );
     }
 }
 #delete:hover {
     cursor: pointer;
 }
-#delete:hover i {
-    color: map-get($colors, "primary" );
-}
 #taskEror {
     font-size: 14px;
     color: map-get($colors , "danger" );
+}
+.font_dark {
+    color: map-get($colors, "dark" );
 }
