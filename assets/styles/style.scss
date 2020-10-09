@@ -10,20 +10,92 @@ body {
     background-color: map-get($colors, "bgColor");
     margin: 5% 336px;
 }
-.section_one {
+.section_one, .section_two {
     width: 100%;
 }
-
+.worker_box {
+    display: flex;
+    flex-direction: column;
+}
+.worker {
+    width: 276px;
+    position: relative;
+    &::after {
+        position: absolute;
+        content: " ";
+        width: 10px;
+        height: 10px;
+        right: 15px;
+        top: 5;
+        background: {
+            image: url("/assets/images/icons/chevron-down-solid.svg");
+            repeat: no-repeat;
+            position: center;
+            size: cover;
+        }
+    }
+}
+.option-container {
+    width: 276px;
+    border-radius: 3px;
+    background-color: map-get($colors, "secondary" );
+    & .option {
+        position: relative;
+        display: flex;
+        align-items: center;  
+        padding: 5px;
+        border-radius: 3px;
+        & input {
+            display: none;
+        }
+        & img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+    }
+    & .option:hover {
+        background-color: map-get($colors, "dark" );
+    }
+    & .active {
+        color: map-get($colors, "primary" );
+    }
+    & .active::after{
+        position: absolute;
+        content: "";
+        width: 13px;
+        height: 13px;
+        right: 15px;
+        top: 5;
+        background: {
+            image: url("/assets/images/icons/check-solid.svg");
+            repeat: no-repeat;
+            position: center;
+            size: cover;
+        }
+    }
+}
 .line {
     width: 280px;
     height: 1px;
     margin: 42px 0;
     background-color: map-get($colors , "gray" );
 }
-//section two
-.section_two {
-    width: 100%;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .form {
     width: 276px;
     & span {
@@ -84,12 +156,12 @@ body {
         }
         box-shadow: none;
         outline: none;
-    }
-    & input:focus + label {
-        top: 20%;
-        z-index: 1;
-        background-color: map-get($colors, "bgColor");
-        color: map-get($colors, "primary" )
+        & + label {
+           top: 20%;
+           z-index: 1;
+           background-color: map-get($colors, "bgColor");
+           color: map-get($colors, "primary" )
+       }
     }
     & input:not(:placeholder-shown) + label {
         top: 20%;
@@ -111,19 +183,22 @@ body {
 }
 table {
     width: 702px;
+    text-align: left;
     margin: {
         top: 50px;
         bottom: 10px;
     }
-    border-collapse: collapse;
-    text-align: left;
-    // border: 1px solid map-get($colors, "secondary");
     border: {
+        width: 1px;
+        collapse: collapse;
         width: 1px;
         style: solid;
         color: map-get($colors, "borderTable");
     }
     & td, & th {
+        font-size: 14px;
+        padding: 18px;
+        color: map-get($colors, "fontsTable" );
         border: {
             width: 1px;
             style: solid;
@@ -133,19 +208,16 @@ table {
             top: 0;
             bottom: 1;
         }
-        font-size: 14px;
-        padding: 18px;
-        color: map-get($colors, "fontsTable" );
     }
     & td span {
         padding: 5px;
         display: flex;
         align-items: center;
-    }
-    & td span img {
-        width: 15px;
-        height: 15px;
-        margin-right: 3px;
+        & img {
+            width: 15px;
+            height: 15px;
+            margin-right: 3px;
+        }
     }
 }
 .box {
@@ -156,12 +228,12 @@ table {
         padding-left: 5px;
         display: flex;
         flex-direction: column;
-    }
-    & span img {
-        margin: 2px;
-        width: 6px;
-        height: 8px;
-        cursor: pointer;
+        & img {
+            margin: 2px;
+            width: 6px;
+            height: 8px;
+            cursor: pointer;
+        }
     }
 }
 #delete:hover {

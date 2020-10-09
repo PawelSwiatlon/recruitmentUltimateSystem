@@ -16,8 +16,86 @@ body {
   margin: 5% 336px;
 }
 
-.section_one {
+.section_one, .section_two {
   width: 100%;
+}
+
+.worker_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.worker {
+  width: 276px;
+  position: relative;
+}
+
+.worker::after {
+  position: absolute;
+  content: " ";
+  width: 10px;
+  height: 10px;
+  right: 15px;
+  top: 5;
+  background-image: url("/assets/images/icons/chevron-down-solid.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.option-container {
+  width: 276px;
+  border-radius: 3px;
+  background-color: #E1E1E1;
+}
+
+.option-container .option {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.option-container .option input {
+  display: none;
+}
+
+.option-container .option img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.option-container .option:hover {
+  background-color: #4A4A4A;
+}
+
+.option-container .active {
+  color: #00447c;
+}
+
+.option-container .active::after {
+  position: absolute;
+  content: "";
+  width: 13px;
+  height: 13px;
+  right: 15px;
+  top: 5;
+  background-image: url("/assets/images/icons/check-solid.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .line {
@@ -25,10 +103,6 @@ body {
   height: 1px;
   margin: 42px 0;
   background-color: #A1A1A1;
-}
-
-.section_two {
-  width: 100%;
 }
 
 .form {
@@ -142,16 +216,20 @@ body {
 
 table {
   width: 702px;
+  text-align: left;
   margin-top: 50px;
   margin-bottom: 10px;
+  border-width: 1px;
   border-collapse: collapse;
-  text-align: left;
   border-width: 1px;
   border-style: solid;
   border-color: #D6E2F5;
 }
 
 table td, table th {
+  font-size: 14px;
+  padding: 18px;
+  color: #4F4F4F;
   border-width: 1px;
   border-style: solid;
   border-color: #D6E2F5;
@@ -159,9 +237,6 @@ table td, table th {
   border-right: 0;
   border-top: 0;
   border-bottom: 1;
-  font-size: 14px;
-  padding: 18px;
-  color: #4F4F4F;
 }
 
 table td span {

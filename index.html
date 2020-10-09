@@ -9,12 +9,46 @@
 <body>
     <div class="section_one">
         <div class="nameInput">
-            <input type="text" name="nazwaFirmy" id="nazwaFirmy" placeholder=" " minlength="5">
+            <input type="text" 
+                    name="nazwaFirmy" 
+                    id="nazwaFirmy" 
+                    placeholder=" " 
+                    minlength="5">
             <label for="nazwaFirmy">Nazwa firmy</label>
         </div>
-        <div class="nameInput">
-            <input type="text" name="pracownik" id="Pracownik" placeholder=" " minlength="5">
-            <label for="pracownik">Pracownik</label>
+        <div class="worker_box">
+            <div class="nameInput worker">
+                <input type="text" 
+                        name="pracownik" 
+                        id="pracownik" 
+                        placeholder=" " 
+                        minlength="5"
+                        onclick="showlist()">
+                <label for="pracownik">Pracownik</label>
+            </div>
+            <div class="option-container">
+                <div class="option">
+                    <input type="radio"
+                            name="pracownik"
+                            id="worker_one">
+                    <img src="/assets/images/user/worker1.jpg" alt="Error img..."> 
+                    <label for="worker_one">Adam Nowak</label>
+                </div>
+                <div class="option active">
+                    <input type="radio"
+                            name="pracownik"
+                            id="worker_two">
+                    <img src="/assets/images/user/worker2.jpg" alt="Error img...">
+                    <label for="worker_two">Michał Potoczek</label>
+                </div>
+                <div class="option">
+                    <input type="radio"
+                            name="pracownik"
+                            id="worker_three"> 
+                    <img src="/assets/images/user/worker3.jpg" alt="Error img...">
+                    <label for="worker_three">Antoni Worek</label>
+                </div>
+            </div>
         </div>
     </div>
     <div class="line"></div>
@@ -22,12 +56,19 @@
         <div class="form">
             <p class="font_dark">Zadania</p>
             <div class="nameInput">
-                <input type="text" name="task" id="task" placeholder=" " minlength="5">
+                <input type="text" 
+                        name="task" 
+                        id="task" 
+                        placeholder=" " 
+                        minlength="5">
                 <label for="task">Nazwa zadania</label>
             </div>
             <p id="taskEror"></p>
             <div class="nameInput">
-                <input type="number" name="price" id="price" placeholder=" ">
+                <input type="number" 
+                        name="price" 
+                        id="price" 
+                        placeholder=" ">
                 <label for="task">Kwota w PLN</label>
             </div>
             <span>
@@ -82,7 +123,8 @@
             </tbody>
         </table>
         <p id="sum"></p>
-    </div>   
-    <script src="assets/scripts/main.js"></script>
+    </div>
+    <script src="assets/scripts/worker.js"></script>   
+    <script src="assets/scripts/tasks.js"></script>
 </body>
 </html>
