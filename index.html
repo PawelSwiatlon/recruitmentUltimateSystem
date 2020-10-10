@@ -23,30 +23,43 @@
                         id="pracownik" 
                         placeholder=" " 
                         minlength="5"
-                        onclick="showlist()">
+                        onfocus="showlist()"
+                        onblur="hiddenlist()">
                 <label for="pracownik">Pracownik</label>
             </div>
-            <div class="option-container">
-                <div class="option">
-                    <input type="radio"
-                            name="pracownik"
-                            id="worker_one">
-                    <img src="/assets/images/user/worker1.jpg" alt="Error img..."> 
-                    <label for="worker_one">Adam Nowak</label>
+            <div class="option-container" id="option-container">
+                <div class="search">
+                    <div class="nameInput">
+                        <input type="text" 
+                                name="pracownik" 
+                                id="szukaj" 
+                                placeholder="Szukaj"
+                                onfocus="showlist()"
+                                onblur="hiddenlist()">
+                    </div>
                 </div>
-                <div class="option active">
-                    <input type="radio"
-                            name="pracownik"
-                            id="worker_two">
-                    <img src="/assets/images/user/worker2.jpg" alt="Error img...">
-                    <label for="worker_two">Michał Potoczek</label>
-                </div>
-                <div class="option">
-                    <input type="radio"
-                            name="pracownik"
-                            id="worker_three"> 
-                    <img src="/assets/images/user/worker3.jpg" alt="Error img...">
-                    <label for="worker_three">Antoni Worek</label>
+                <div id="options">
+                    <div class="option" onclick="chosen(1)">
+                        <input type="radio"
+                                name="pracownik"
+                                id="worker_one">
+                        <img src="/assets/images/user/worker1.jpg" alt="Error img..."> 
+                        <label for="worker_one">Adam Nowak</label>
+                    </div>
+                    <div class="option active" onclick="chosen(2)">
+                        <input type="radio"
+                                name="pracownik"
+                                id="worker_two">
+                        <img src="/assets/images/user/worker2.jpg" alt="Error img...">
+                        <label for="worker_two">Michał Potoczek</label>
+                    </div>
+                    <div class="option" onclick="chosen(3)">
+                        <input type="radio"
+                                name="pracownik"
+                                id="worker_three"> 
+                        <img src="/assets/images/user/worker3.jpg" alt="Error img...">
+                        <label for="worker_three">Antoni Worek</label>
+                    </div>
                 </div>
             </div>
         </div>

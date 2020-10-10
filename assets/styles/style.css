@@ -11,6 +11,22 @@
   font-family: SansPro;
 }
 
+::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+::-moz-placeholder {
+  opacity: 0;
+}
+
+:-moz-placeholder {
+  opacity: 0;
+}
+
+::-ms-input-placeholder {
+  opacity: 0;
+}
+
 body {
   background-color: #fff;
   margin: 5% 336px;
@@ -48,10 +64,19 @@ body {
   background-size: cover;
 }
 
+#option-container {
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+  max-height: 0px;
+  overflow: hidden;
+  border-width: 0px;
+}
+
 .option-container {
   width: 276px;
   border-radius: 3px;
-  background-color: #E1E1E1;
+  background-color: #fff;
+  border: 1px solid #D6E2F5;
 }
 
 .option-container .option {
@@ -66,7 +91,7 @@ body {
   border-radius: 3px;
 }
 
-.option-container .option input {
+.option-container .option input[type="radio"] {
   display: none;
 }
 
@@ -77,8 +102,56 @@ body {
   border-radius: 50%;
 }
 
+.option-container .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 1px solid #D6E2F5;
+}
+
+.option-container .search .nameInput {
+  position: relative;
+}
+
+.option-container .search .nameInput input {
+  width: 264px;
+  background-color: #F2F4F8;
+}
+
+.option-container .search .nameInput input::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.option-container .search .nameInput input::-moz-placeholder {
+  opacity: 1;
+}
+
+.option-container .search .nameInput input:-moz-placeholder {
+  opacity: 1;
+}
+
+.option-container .search .nameInput input::-ms-input-placeholder {
+  opacity: 1;
+}
+
+.option-container .search .nameInput::after {
+  position: absolute;
+  content: " ";
+  width: 13px;
+  height: 13px;
+  right: 15px;
+  top: 5;
+  background-image: url("/assets/images/icons/search-solid.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .option-container .option:hover {
-  background-color: #4A4A4A;
+  background-color: #F4F7FB;
 }
 
 .option-container .active {
@@ -196,22 +269,6 @@ body {
   top: 20%;
   z-index: 1;
   background-color: #fff;
-}
-
-::-webkit-input-placeholder {
-  opacity: 0;
-}
-
-::-moz-placeholder {
-  opacity: 0;
-}
-
-:-moz-placeholder {
-  opacity: 0;
-}
-
-::-ms-input-placeholder {
-  opacity: 0;
 }
 
 table {
