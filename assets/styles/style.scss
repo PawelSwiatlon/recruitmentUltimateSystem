@@ -183,18 +183,22 @@ table {
     border-collapse: collapse;
     @include border("borderTable",1,1,1,1);
     & td, & th {
-        padding: 15px;
         @include color("fontsTable");
         @include border("borderTable",0,0,1,0);
     }
-    & td span {
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        & img {
-            width: 15px;
-            height: 15px;
-            margin-right: 3px;
+    & th {
+        padding: 20px;
+    }
+    & td {
+        padding: 15px 20px;
+        & span {
+            display: flex;
+            align-items: center;
+            & img {
+                width: 15px;
+                height: 15px;
+                margin-right: 3px;
+            }
         }
     }
 }
@@ -206,9 +210,8 @@ table {
         flex-direction: column;
         padding-left: 5px;
         & img {
-            width: 6px;
-            height: 8px;
-            margin: 2px;
+            width: 12px;
+            height: 10px;
             cursor: pointer;
         }
     }

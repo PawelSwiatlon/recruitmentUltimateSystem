@@ -312,7 +312,6 @@ table {
 }
 
 table td, table th {
-  padding: 15px;
   color: #4F4F4F;
   border-width: 1px;
   border-radius: 3px;
@@ -324,6 +323,14 @@ table td, table th {
   border-left: 0;
 }
 
+table th {
+  padding: 20px;
+}
+
+table td {
+  padding: 15px 20px;
+}
+
 table td span {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -331,7 +338,6 @@ table td span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5px;
 }
 
 table td span img {
@@ -361,9 +367,8 @@ table td span img {
 }
 
 .box span img {
-  width: 6px;
-  height: 8px;
-  margin: 2px;
+  width: 12px;
+  height: 10px;
   cursor: pointer;
 }
 

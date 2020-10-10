@@ -3,8 +3,8 @@
 // Lista zadań
 let taskList = [
     // Przykłady zadań
-    {task: "zadanie 1", price: "100"},
-    {task: "zadanie 2", price: "2000"},
+    {task: "zadanie 1", price: "100.95"},
+    {task: "zadanie 2", price: "2000.16"},
     {task: "zadanie 3", price: "850"}
 ];
 // Pobranie elementów lista zadań, sum (całkowity koszt zadań) i euro
@@ -64,14 +64,14 @@ function createElements() {
     for(i in taskList) {
         let tr = document.createElement("tr");
         // Przekazanie danych do tworzenia elementu
-        createList(tr, [i,taskList[i].task, taskList[i].price, (taskList[i].price/euro).toFixed(2)]);
+        createList(tr, [i,taskList[i].task, parseFloat(taskList[i].price).toFixed(2), parseFloat(taskList[i].price/euro).toFixed(2)]);
         // Wypisanie zadania na stronie
         list.appendChild(tr);
         // Zczytanie ceny danego zadaia
-        sum_number += parseInt(taskList[i].price);
+        sum_number += parseFloat(taskList[i].price);
     }
     // Wypisanei sumy zadań na stronie
-    sum.appendChild(document.createTextNode(`Suma: ${sum_number} PLN (${(sum_number/euro).toFixed(2)} EUR)`));
+    sum.appendChild(document.createTextNode(`Suma: ${sum_number.toFixed(2)} PLN (${(sum_number/euro).toFixed(2)} EUR)`));
 }
 // Funkcja odpowiedzialna za tworzenie elementów td wraz z zawartością
 function createList(tr, data) {
@@ -81,7 +81,7 @@ function createList(tr, data) {
         }else{
             // Tworzenie elementu td wraz z zawartością
             let td = document.createElement("td");
-            if(i == 2) {
+            if(i == 2) { 
                 td.appendChild(document.createTextNode(`${data[i]} PLN`));
                 
             }else if(i == 3){
