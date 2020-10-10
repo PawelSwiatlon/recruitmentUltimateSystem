@@ -9,6 +9,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: SansPro;
+  font-size: 14px;
 }
 
 ::-webkit-input-placeholder {
@@ -28,11 +29,11 @@
 }
 
 body {
-  background-color: #fff;
   margin: 5% 336px;
+  background-color: #fff;
 }
 
-.section_one, .section_two {
+section {
   width: 100%;
 }
 
@@ -46,16 +47,20 @@ body {
           flex-direction: column;
 }
 
-.worker {
+#workPlace_error {
+  color: #FF4003;
+}
+
+.worker_list {
   width: 276px;
   position: relative;
 }
 
-.worker::after {
-  position: absolute;
-  content: " ";
+.worker_list::after {
   width: 10px;
   height: 10px;
+  position: absolute;
+  content: " ";
   right: 15px;
   top: 5;
   background-image: url("/assets/images/icons/chevron-down-solid.svg");
@@ -65,36 +70,41 @@ body {
 }
 
 #option-container {
+  max-height: 0px;
+  border-width: 0px;
+  overflow: hidden;
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
-  max-height: 0px;
-  overflow: hidden;
-  border-width: 0px;
 }
 
 .option-container {
   width: 276px;
-  border-radius: 3px;
   background-color: #fff;
-  border: 1px solid #D6E2F5;
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #D6E2F5;
+  border-top: 1;
+  border-right: 1;
+  border-bottom: 1;
+  border-left: 1;
 }
 
 .option-container .option {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
   padding: 5px;
-  border-radius: 3px;
 }
 
 .option-container .option img {
   width: 30px;
   height: 30px;
-  margin-right: 5px;
+  margin-right: 6px;
   border-radius: 50%;
 }
 
@@ -105,7 +115,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-bottom: 1px solid #D6E2F5;
+  border-radius: 0px;
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #D6E2F5;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1;
+  border-left: 0;
 }
 
 .option-container .search .nameInput {
@@ -114,6 +132,7 @@ body {
 
 .option-container .search .nameInput input {
   width: 264px;
+  border: none;
   background-color: #F2F4F8;
 }
 
@@ -134,10 +153,10 @@ body {
 }
 
 .option-container .search .nameInput::after {
-  position: absolute;
-  content: " ";
   width: 13px;
   height: 13px;
+  position: absolute;
+  content: " ";
   right: 15px;
   top: 5;
   background-image: url("/assets/images/icons/search-solid.svg");
@@ -155,10 +174,10 @@ body {
 }
 
 .option-container .active::after {
-  position: absolute;
-  content: "";
   width: 13px;
   height: 13px;
+  position: absolute;
+  content: "";
   right: 15px;
   top: 5;
   background-image: url("/assets/images/icons/check-solid.svg");
@@ -179,7 +198,6 @@ body {
 }
 
 .form span {
-  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -189,10 +207,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.form span p {
-  font-size: 14px;
+  margin-top: 10px;
 }
 
 .form button {
@@ -200,14 +215,17 @@ body {
   height: 30px;
   color: #fff;
   border-width: 1px;
+  border-radius: 3px;
   border-style: solid;
   border-color: #4A4A4A;
-  border-radius: 5px;
+  border-top: 1;
+  border-right: 1;
+  border-bottom: 1;
+  border-left: 1;
   background-color: #00447c;
 }
 
 .nameInput {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,40 +236,49 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
 }
 
 .nameInput input {
   width: 276px;
   height: 30px;
-  margin: 10px 0;
   padding: 8px;
-  background-color: transparent;
-  border-radius: 3px;
+  margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0);
   border-width: 1px;
+  border-radius: 3px;
   border-style: solid;
   border-color: #E1E1E1;
+  border-top: 1;
+  border-right: 1;
+  border-bottom: 1;
+  border-left: 1;
 }
 
 .nameInput label {
+  position: absolute;
   top: 50%;
+  left: 10px;
+  z-index: -1;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  left: 10px;
-  font-size: 14px;
-  position: absolute;
-  color: #939393;
   -webkit-transition: 0.1s linear;
   transition: 0.1s linear;
-  z-index: -1;
+  color: #939393;
 }
 
 .nameInput input:focus {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #00447c;
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #00447c;
+  border-top: 1;
+  border-right: 1;
+  border-bottom: 1;
+  border-left: 1;
 }
 
 .nameInput input:focus + label {
@@ -269,37 +296,41 @@ body {
 
 table {
   width: 702px;
-  text-align: left;
   margin-top: 50px;
   margin-bottom: 10px;
-  border-width: 1px;
+  text-align: left;
   border-collapse: collapse;
   border-width: 1px;
+  border-radius: 3px;
   border-style: solid;
   border-color: #D6E2F5;
+  border-top: 1;
+  border-right: 1;
+  border-bottom: 1;
+  border-left: 1;
 }
 
 table td, table th {
-  font-size: 14px;
-  padding: 18px;
+  padding: 15px;
   color: #4F4F4F;
   border-width: 1px;
+  border-radius: 3px;
   border-style: solid;
   border-color: #D6E2F5;
-  border-left: 0;
-  border-right: 0;
   border-top: 0;
+  border-right: 0;
   border-bottom: 1;
+  border-left: 0;
 }
 
 table td span {
-  padding: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 5px;
 }
 
 table td span img {
@@ -315,11 +346,9 @@ table td span img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 14px;
 }
 
 .box span {
-  padding-left: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -327,12 +356,13 @@ table td span img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-left: 5px;
 }
 
 .box span img {
-  margin: 2px;
   width: 6px;
   height: 8px;
+  margin: 2px;
   cursor: pointer;
 }
 
@@ -340,11 +370,11 @@ table td span img {
   cursor: pointer;
 }
 
-#taskEror {
-  font-size: 14px;
+#eur {
+  color: #4A4A4A;
 }
 
-.font_dark {
-  color: #4A4A4A;
+#sum {
+  font-size: 18px;
 }
 /*# sourceMappingURL=style.css.map */

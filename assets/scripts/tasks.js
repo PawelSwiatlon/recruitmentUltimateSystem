@@ -67,17 +67,27 @@ function createElements() {
         sum_number += parseInt(taskList[i].price);
     }
     // Wypisanei sumy zadań na stronie
-    sum.appendChild(document.createTextNode(`Suma: ${sum_number} (${(sum_number/euro).toFixed(2)} EUR)`));
+    sum.appendChild(document.createTextNode(`Suma: ${sum_number} PLN (${(sum_number/euro).toFixed(2)} EUR)`));
 }
 // Funkcja odpowiedzialna za tworzenie elementów td wraz z zawartością
 function createList(tr, data) {
     for(let i in data) {
-        if(i==0){i++}else{
-        // Tworzenie elementu td wraz z zawartością
-        let td = document.createElement("td");
-        td.appendChild(document.createTextNode(data[i]));
-        // Dodanie zawartości do elementu tr
-        tr.appendChild(td);
+        if(i==0){
+            i++
+        }else{
+            // Tworzenie elementu td wraz z zawartością
+            let td = document.createElement("td");
+            if(i == 2) {
+                td.appendChild(document.createTextNode(`${data[i]} PLN`));
+                
+            }else if(i == 3){
+                td.appendChild(document.createTextNode(`${data[i]} EUR`));
+
+            }else{
+                td.appendChild(document.createTextNode(data[i]));
+            }
+            // Dodanie zawartości do elementu tr
+            tr.appendChild(td);
         }
     }
     //Dodanie przycisku usuń do zadania

@@ -1,0 +1,26 @@
+@mixin color($color) {
+    color: map-get($colors, $color );
+}
+@mixin border($color, $top, $right, $bottom, $left) {
+    border: {
+        width: 1px;
+        radius: 3px;
+        style: solid;
+        color: map-get($colors, $color );
+        top: $top;
+        right: $right;
+        bottom: $bottom;
+        left: $left;
+    }
+}
+@mixin backgroundColor($color) {
+    background-color: map-get($colors, $color );
+}
+@mixin backgroundImage($image) {
+    background: {
+        image: url('/assets/images/icons/'+$image+'.svg');
+        repeat: no-repeat;
+        position: center;
+        size: cover;
+    }
+}

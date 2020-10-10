@@ -39,17 +39,17 @@ function hiddenlist() {
     test.style.borderWidth = "0px";
 }
 function chosen(id) {
-    document.getElementById("pracownik").value = workers[id].name;
+    document.getElementById("worker").value = workers[id].name;
     for(let i in workers){
         workers[i].chosen = false
     }
     workers[id].chosen = true;
-    document.getElementById("szukaj").value = '';
+    document.getElementById("search").value = '';
     workers = workersData;
     createWorkerList();
 }
 function filterWorkerList() {
-    let user = document.getElementById("szukaj").value;
+    let user = document.getElementById("search").value;
     if(user.length == 0) {
         workers = workersData;
     } else {
@@ -59,4 +59,14 @@ function filterWorkerList() {
         });
     }
     createWorkerList();
+}
+function validateWorkPlace() {
+    if(document.getElementById("nazwaFirmy").length <= 1){
+        document.getElementById("workPlace_error").style.display = 'block';
+        document.getElementById("nazwaFirmy").style.borderColor = '#FF4003';
+    }else {
+        document.getElementById("workPlace_error").style.display = 'none';
+        document.getElementById("nazwaFirmy").style.borderColor = '#E1E1E1';
+      
+    }
 }

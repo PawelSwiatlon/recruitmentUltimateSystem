@@ -7,32 +7,30 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
-    <div class="section_one">
+    <section>
         <div class="nameInput">
-            <input type="text" 
-                    name="nazwaFirmy" 
-                    id="nazwaFirmy" 
-                    placeholder=" " 
-                    minlength="5">
-            <label for="nazwaFirmy">Nazwa firmy</label>
+            <input type="text"
+                    id="workplace_name" 
+                    placeholder=" "
+                    onblur="validateWorkPlace()">
+            <label for="workplace_name">Nazwa firmy</label>
         </div>
+        <p id="workPlace_error">Błąd</p>
         <div class="worker_box">
-            <div class="nameInput worker">
-                <input type="text" 
-                        name="pracownik" 
-                        id="pracownik" 
+            <div class="nameInput worker_list">
+                <input type="text"
+                        id="worker" 
                         placeholder=" " 
                         minlength="5"
                         onfocus="showlist()"
                         onblur="hiddenlist()">
-                <label for="pracownik">Pracownik</label>
+                <label for="worker">Pracownik</label>
             </div>
             <div class="option-container" id="option-container">
                 <div class="search">
                     <div class="nameInput">
-                        <input type="text" 
-                                name="pracownik" 
-                                id="szukaj" 
+                        <input type="text"
+                                id="search" 
                                 placeholder="Szukaj"
                                 onfocus="showlist()"
                                 onblur="hiddenlist()"
@@ -47,14 +45,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="line"></div>
-    <div class="section_two">
+    <section>
         <div class="form">
             <p class="font_dark">Zadania</p>
             <div class="nameInput">
                 <input type="text" 
-                        name="task" 
                         id="task" 
                         placeholder=" " 
                         minlength="5">
@@ -69,7 +66,7 @@
                 <label for="task">Kwota w PLN</label>
             </div>
             <span>
-                <p id="eur" class="font_dark">1 euro = x.xx</p>
+                <p id="eur">1 euro = x.xx</p>
                 <button onclick="getData()">Dodaj</button>
             </span>
         </div>
@@ -120,7 +117,7 @@
             </tbody>
         </table>
         <p id="sum"></p>
-    </div>
+    </section>
     <script src="assets/scripts/worker.js"></script>   
     <script src="assets/scripts/tasks.js"></script>
 </body>
