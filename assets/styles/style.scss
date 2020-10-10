@@ -8,18 +8,12 @@
     font-family: SansPro;
     font-size: 14px;
 }
-::-webkit-input-placeholder{
-    opacity: 0;
-}
-::-moz-placeholder{
-    opacity: 0;
-}
-:-moz-placeholder{
-    opacity: 0;
-}
-::-ms-input-placeholder {
-    opacity: 0;
-}
+// Ukrycie placecholdera dla inputów
+::-webkit-input-placeholder{ opacity: 0; }
+::-moz-placeholder{ opacity: 0; }
+:-moz-placeholder{ opacity: 0; }
+::-ms-input-placeholder { opacity: 0; }
+// Ustawienie tła, margina dla body
 body {
     margin: 5% 336px;
     @include backgroundColor("bgColor");
@@ -27,121 +21,7 @@ body {
 section {
     width: 100%;
 }
-.worker_box {
-    display: flex;
-    flex-direction: column;
-}
-#workPlace_error {
-    @include color("error");
-}
-.worker_list {
-    width: 276px;
-    position: relative;
-    &::after {
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        content: " ";
-        right: 15px;
-        top: 5;
-        @include backgroundImage('chevron-down-solid');
-    }
-}
-#option-container {
-    max-height: 0px;
-    border-width: 0px;
-    overflow: hidden;
-    transition: 0.3s linear;
-}
-.option-container {
-    width: 276px;
-    @include backgroundColor("white");
-    @include border("borderTable",1,1,1,1);
-    & .option {
-        display: flex;
-        align-items: center;
-        position: relative;
-        padding: 5px;
-        & img {
-            width: 30px;
-            height: 30px;
-            margin-right: 6px;
-            border-radius: 50%;
-        }
-    }
-    & .search {
-        display: flex;
-        justify-content: center;
-        border-radius: 0px;
-        @include border("borderTable",0,0,1,0);
-        & .nameInput {
-            position: relative;
-            & input {
-                width: 264px;
-                border: none;
-                @include backgroundColor('lightgray');
-                &::-webkit-input-placeholder {
-                    opacity: 1; 
-                }
-                &::-moz-placeholder {
-                    opacity: 1;
-                }
-                &:-moz-placeholder {
-                    opacity: 1;
-                }
-                &::-ms-input-placeholder {
-                    opacity: 1; 
-                }
-            }
-            &::after {
-                width: 13px;
-                height: 13px;
-                position: absolute;
-                content: " ";
-                right: 15px;
-                top: 5;
-                @include backgroundImage('search-solid');
-            }
-        }
-    }
-    & .option:hover {
-        @include backgroundColor('workerHover');
-    }
-    & .active {
-        @include color('primary');
-    }
-    & .active::after{
-        width: 13px;
-        height: 13px;
-        position: absolute;
-        content: "";
-        right: 15px;
-        top: 5;
-        @include backgroundImage('check-solid');
-    }
-}
-.line {
-    width: 280px;
-    height: 1px;
-    margin: 42px 0;
-    @include backgroundColor("gray");
-}
-.form {
-    width: 276px;
-    & span {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;    
-        margin-top: 10px;
-    }
-    & button {
-        width: 92px;
-        height: 30px;
-        @include color('white');
-        @include border("dark",1,1,1,1);
-        @include backgroundColor('primary');
-    }
-}
+// Ustawienie wielkości Inputa i Input:hover dla label ("placeholder")  
 .nameInput {
     display: flex;
     flex-direction: column;
@@ -179,6 +59,118 @@ section {
         top: 20%;
         z-index: 1;
         @include backgroundColor("bgColor");
+    }
+}
+// Ustawienie error mesage dla błędnej nzwy firmy
+#workPlace_error {
+    display: none;
+    @include color("error");
+}
+.worker_box {
+    display: flex;
+    flex-direction: column;
+}
+.worker_list {
+    width: 276px;
+    position: relative;
+    &::after {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        content: " ";
+        right: 15px;
+        top: 5;
+        @include backgroundImage('chevron-down-solid');
+    }
+}
+#option-container {
+    max-height: 0px;
+    border-width: 0px;
+    overflow: hidden;
+    transition: 0.3s linear;
+}
+// Style dla listy pracowników
+.option-container {
+    width: 276px;
+    @include backgroundColor("white");
+    @include border("borderTable",1,1,1,1);
+    & .option {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 5px;
+        & img {
+            width: 30px;
+            height: 30px;
+            margin-right: 6px;
+            border-radius: 50%;
+        }
+    }
+    & .search {
+        display: flex;
+        justify-content: center;
+        border-radius: 0px;
+        @include border("borderTable",0,0,1,0);
+        & .nameInput {
+            position: relative;
+            & input {
+                width: 264px;
+                border: none;
+                @include backgroundColor('lightgray');
+                &::-webkit-input-placeholder { opacity: 1; }
+                &::-moz-placeholder { opacity: 1; }
+                &:-moz-placeholder { opacity: 1; }
+                &::-ms-input-placeholder {opacity: 1; }
+            }
+            &::after {
+                width: 13px;
+                height: 13px;
+                position: absolute;
+                content: " ";
+                right: 15px;
+                top: 5;
+                @include backgroundImage('search-solid');
+            }
+        }
+    }
+    & .option:hover {
+        @include backgroundColor('workerHover');
+    }
+    & .active {
+        @include color('primary');
+    }
+    & .active::after{
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        content: "";
+        right: 15px;
+        top: 5;
+        @include backgroundImage('check-solid');
+    }
+}
+// Style dla lini odzielającej zadania
+.line {
+    width: 280px;
+    height: 1px;
+    margin: 42px 0;
+    @include backgroundColor("gray");
+}
+// Style dla tabeli zadań
+.form {
+    width: 276px;
+    & span {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+        margin-top: 10px;
+    }
+    & button {
+        width: 92px;
+        height: 30px;
+        @include color('white');
+        @include border("dark",1,1,1,1);
+        @include backgroundColor('primary');
     }
 }
 table {
@@ -225,7 +217,7 @@ table {
     cursor: pointer;
 }
 #taskEror {
-    @include color('danger');
+    @include color('error');
 }
 #eur {
     @include color('dark');

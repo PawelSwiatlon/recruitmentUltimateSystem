@@ -1,3 +1,5 @@
+// Skrypt odpowiedzialny za działanie drugiego zadania związandego z dodawaniem nowych zadań do tabeli zadań
+
 // Lista zadań
 let taskList = [
     // Przykłady zadań
@@ -39,6 +41,7 @@ function getData() {
         // Resetowanie pól nazwy zadania i ceny zadania
         document.getElementById("task").value = "";
         document.getElementById("price").value = "";
+        document.getElementById("task").style.borderColor = "#E1E1E1";
         // Dodanie nowego zadania do listy zadań 
         taskList.push({task,price});
         // Usunięcie komunikatu o błędzie nazwy zadania jeśli urzytkownik spełnił wymagań
@@ -46,6 +49,7 @@ function getData() {
     }else{
         // Komunikat o błędzie nazwy zadania jeśli urzytkownik nie spełnił wymagań
         document.getElementById("taskEror").innerHTML = "Nazwa zadania musi składać się z minimum 5 znaków.";
+        document.getElementById("task").style.borderColor = "#FF4003";
     }
     // Tworzenie nowego elementu - wypisanie nowego zadania na stronie
     createElements();

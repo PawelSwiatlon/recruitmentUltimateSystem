@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
+    <!-- Sekcja/Zadanie pierwsze input z nazwą firmy i pole pracowników z rozwijaną listą -->
     <section>
+        <!-- Input z nazwą firmy -->
         <div class="nameInput">
             <input type="text"
                     id="workplace_name" 
@@ -15,8 +17,11 @@
                     onblur="validateWorkPlace()">
             <label for="workplace_name">Nazwa firmy</label>
         </div>
+        <!-- Błąd informujący o złym wypełnieniu pola z nazwą firmy -->
         <p id="workPlace_error">Błąd</p>
+        <!-- Box zawierający Input z listą pracowników -->
         <div class="worker_box">
+            <!-- Input z miejscem na wpisanie pracownika -->
             <div class="nameInput worker_list">
                 <input type="text"
                         id="worker" 
@@ -26,8 +31,10 @@
                         onblur="hiddenlist()">
                 <label for="worker">Pracownik</label>
             </div>
+            <!-- Lista pracowników i input z wyszukaniem danego pracownika -->
             <div class="option-container" id="option-container">
                 <div class="search">
+                    <!-- Input wyszukujący pracownika po nazwie -->
                     <div class="nameInput">
                         <input type="text"
                                 id="search" 
@@ -37,19 +44,26 @@
                                 onkeyup="filterWorkerList()">
                     </div>
                 </div>
+                <!-- Lista pracowników (dodawane rekordy są za pomocą worker.js) -->
                 <div id="options">
-                    <!-- <div class="option" onclick="chosen(1)">
+                    <!-- Przykładowy "box" z danymi pracownika
+
+                    <div class="option" onclick="chosen(1)">
                         <img src="/assets/images/user/worker1.jpg" alt="Error img..."> 
                         <span>Adam Nowak</span>
-                    </div> -->
+                    </div> 
+                    -->
                 </div>
             </div>
         </div>
     </section>
+    <!-- Linia odzielająca sekcje/zadania -->
     <div class="line"></div>
+    <!-- Sekcja/zadanie drugie -->
     <section>
         <div class="form">
             <p class="font_dark">Zadania</p>
+            <!-- Input Nazwa zadania -->
             <div class="nameInput">
                 <input type="text" 
                         id="task" 
@@ -57,7 +71,9 @@
                         minlength="5">
                 <label for="task">Nazwa zadania</label>
             </div>
+            <!-- Komunikat o błędnym wpełnieniu pola nazwa zadania (dodawany z pliku task.js) -->
             <p id="taskEror"></p>
+            <!-- Input kwota w PLN -->
             <div class="nameInput">
                 <input type="number" 
                         name="price" 
@@ -66,10 +82,13 @@
                 <label for="task">Kwota w PLN</label>
             </div>
             <span>
+                <!-- Aktualna stawka euro (aktualizowana z pliku task.js) -->
                 <p id="eur">1 euro = x.xx</p>
+                <!-- Przycisk dodający nowe zadanie do listy -->
                 <button onclick="getData()">Dodaj</button>
             </span>
         </div>
+        <!-- Tabela zadań -->
         <table>
             <thead>
                 <tr>
@@ -107,8 +126,11 @@
                     </th>
                 </tr>
             </thead>
+            <!-- Lista zadań, rekordy dodawane z task.js -->
             <tbody id="list">
-                <!-- <tr>
+                <!-- Przykład rekordu zadania
+
+                    <tr>
                     <td id="task">Nazwa zadania</td>
                     <td id="amount_pln">Kwota PLN</td>
                     <td id="amount_eur">Kwota EUR</td>
@@ -116,9 +138,12 @@
                 </tr> -->
             </tbody>
         </table>
+        <!-- Pole sumujące za pomocą task.js łączną kwotę wszystkich zadań. Kwota podawana w PLN/EUR -->
         <p id="sum"></p>
     </section>
-    <script src="assets/scripts/worker.js"></script>   
+    <!-- Skrypt odpowiedzialny za działanie pierwszego zadania związanego z nazą firmy i listą pracowników -->
+    <script src="assets/scripts/worker.js"></script>  
+     <!-- Skrypt odpowiedzialny za działanie drugiego zadania związandego z dodawaniem nowych zadań do tabeli zadań -->
     <script src="assets/scripts/tasks.js"></script>
 </body>
 </html>
