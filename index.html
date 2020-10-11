@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
-    <!-- Sekcja/Zadanie pierwsze input z nazwą firmy i pole pracowników z rozwijaną listą -->
+    <!-- First task: input with company name and employee list -->
     <section>
-        <!-- Input z nazwą firmy -->
-        <div class="nameInput">
+        <!-- Company name input -->
+        <div class="nameInput"> 
             <input type="text"
                     id="workplace_name" 
                     placeholder=" "
                     onblur="validateWorkPlace()">
             <label for="workplace_name">Nazwa firmy</label>
         </div>
-        <!-- Błąd informujący o złym wypełnieniu pola z nazwą firmy -->
+        <!-- Error message for incorect company name -->
         <p id="workPlace_error">Błąd</p>
-        <!-- Box zawierający Input z listą pracowników -->
+        <!-- Box with employee list -->
         <div class="worker_box">
-            <!-- Input z miejscem na wpisanie pracownika -->
+            <!-- Employee name input -->
             <div class="nameInput worker_list">
                 <input type="text"
                         id="worker" 
@@ -30,10 +30,10 @@
                         onblur="hiddenlist()">
                 <label for="worker">Pracownik</label>
             </div>
-            <!-- Lista pracowników i input z wyszukaniem danego pracownika -->
+            <!-- Employee list and search employee name input -->
             <div class="option-container" id="option-container">
                 <div class="search">
-                    <!-- Input wyszukujący pracownika po nazwie -->
+                    <!-- Searching employee name input -->
                     <div class="nameInput">
                         <input type="text"
                                 id="search" 
@@ -43,9 +43,9 @@
                                 onkeyup="filterWorkerList()">
                     </div>
                 </div>
-                <!-- Lista pracowników (dodawane rekordy są za pomocą worker.js) -->
+                <!-- Employee list (Records added with worker.js) -->
                 <div id="options">
-                    <!-- Przykładowy "box" z danymi pracownika
+                    <!-- Exemplary employee data "box"
 
                     <div class="option" onclick="chosen(1)">
                         <img src="assets/images/user/worker1.jpg" alt="Error img..."> 
@@ -56,13 +56,12 @@
             </div>
         </div>
     </section>
-    <!-- Linia odzielająca sekcje/zadania -->
     <div class="line"></div>
-    <!-- Sekcja/zadanie drugie -->
+    <!-- Second task -->
     <section>
         <div class="form">
             <p class="font_dark">Zadania</p>
-            <!-- Input Nazwa zadania -->
+            <!-- Task name input -->
             <div class="nameInput">
                 <input type="text" 
                         id="task" 
@@ -70,9 +69,9 @@
                         minlength="5">
                 <label for="task">Nazwa zadania</label>
             </div>
-            <!-- Komunikat o błędnym wpełnieniu pola nazwa zadania (dodawany z pliku task.js) -->
+            <!-- Error message for incorrect task name, (Records added with task.js) -->
             <p id="taskEror"></p>
-            <!-- Input kwota w PLN -->
+            <!-- Amount in PLN input -->
             <div class="nameInput">
                 <input type="number" 
                         name="price" 
@@ -81,13 +80,13 @@
                 <label for="task">Kwota w PLN</label>
             </div>
             <span>
-                <!-- Aktualna stawka euro (aktualizowana z pliku task.js) -->
+                <!-- Current EUR currency (updated from task.js) -->
                 <p id="eur">1 euro = x.xx</p>
-                <!-- Przycisk dodający nowe zadanie do listy -->
+                <!-- Butting adding new task to list -->
                 <button onclick="getData()">Dodaj</button>
             </span>
         </div>
-        <!-- Tabela zadań -->
+        <!-- Task list -->
         <table>
             <thead>
                 <tr>
@@ -125,9 +124,9 @@
                     </th>
                 </tr>
             </thead>
-            <!-- Lista zadań, rekordy dodawane z task.js -->
+            <!-- Task record added from task.js -->
             <tbody id="list">
-                <!-- Przykład rekordu zadania
+                <!-- Exemplary record of data task
 
                     <tr>
                     <td id="task">Nazwa zadania</td>
@@ -137,12 +136,12 @@
                 </tr> -->
             </tbody>
         </table>
-        <!-- Pole sumujące za pomocą task.js łączną kwotę wszystkich zadań. Kwota podawana w PLN/EUR -->
+        <!-- Sum of the task prices (from task.js) -->
         <p id="sum"></p>
     </section>
-    <!-- Skrypt odpowiedzialny za działanie pierwszego zadania związanego z nazą firmy i listą pracowników -->
+    <!-- Script responsible for first task actions (company name, empolyee list) -->
     <script src="assets/scripts/worker.js"></script>  
-     <!-- Skrypt odpowiedzialny za działanie drugiego zadania związandego z dodawaniem nowych zadań do tabeli zadań -->
+     <!-- Script responsible for second task actions (adding new tasks) -->
     <script src="assets/scripts/tasks.js"></script>
 </body>
 </html>

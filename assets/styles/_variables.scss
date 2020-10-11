@@ -1,9 +1,7 @@
-// mixin ustawiający color z listy kolorów w _colors.scss
-@mixin color($color) {
+@mixin color($color) { // mixin setting color from _colors.scss (color list)
     color: map-get($colors, $color );
 }
-// mixin ustawiający border-color z listy kolorów w _colors.scss i parametry width dla danej krawędzi
-@mixin border($color, $top, $right, $bottom, $left) {
+@mixin border($color, $top, $right, $bottom, $left) { // mixin setting border-color from _colors.scss (color list) and parameters width for border
     border: {
         width: 1px;
         radius: 3px;
@@ -15,12 +13,10 @@
         left: $left;
     }
 }
-// mixin ustawiający background-color z listy kolorów w _colors.scss
-@mixin backgroundColor($color) {
+@mixin backgroundColor($color) { // mixin setting background-color from _colors.scss (color list)
     background-color: map-get($colors, $color );
 }
-// mixin ustawiajacy parametry i ścieżkę dle backkground-image
-@mixin backgroundImage($image) {
+@mixin backgroundImage($image) { // mixin setting path for background-image
     background: {
         image: url('../images/icons/'+$image+'.svg');
         repeat: no-repeat;

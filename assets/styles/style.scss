@@ -8,12 +8,11 @@
     font-family: SansPro;
     font-size: 14px;
 }
-// Ukrycie placecholdera dla inputów
+// hiding placeholder for inpiut 
 ::-webkit-input-placeholder{ opacity: 0; }
 ::-moz-placeholder{ opacity: 0; }
 :-moz-placeholder{ opacity: 0; }
 ::-ms-input-placeholder { opacity: 0; }
-// Ustawienie tła, margina dla body
 body {
     margin: 5% 336px;
     @include backgroundColor("bgColor");
@@ -21,8 +20,7 @@ body {
 section {
     width: 100%;
 }
-// Ustawienie wielkości Inputa i Input:hover dla label ("placeholder")  
-.nameInput {
+.nameInput { // setting parameters for input and input:hover for label ("placeholder") 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,8 +59,7 @@ section {
         @include backgroundColor("bgColor");
     }
 }
-// Ustawienie error mesage dla błędnej nzwy firmy
-#workPlace_error {
+#workPlace_error { // setting error message for incorrect company name
     display: none;
     @include color("error");
 }
@@ -89,8 +86,7 @@ section {
     overflow: hidden;
     transition: 0.3s linear;
 }
-// Style dla listy pracowników
-.option-container {
+.option-container { // settings for employee list 
     width: 276px;
     @include backgroundColor("white");
     @include border("borderTable",1,1,1,1);
@@ -149,15 +145,13 @@ section {
         @include backgroundImage('check-solid');
     }
 }
-// Style dla lini odzielającej zadania
 .line {
     width: 280px;
     height: 1px;
     margin: 42px 0;
     @include backgroundColor("gray");
 }
-// Style dla tabeli zadań
-.form {
+.form { // settings for task list
     width: 276px;
     & span {
         display: flex;

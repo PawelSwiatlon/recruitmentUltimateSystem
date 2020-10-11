@@ -1,86 +1,61 @@
-// Skrypt odpowiedzialny za działanie drugiego zadania związandego z dodawaniem nowych zadań do tabeli zadań
+// Script responsibble for second task, adding new tasks to the task list
 
-// Lista zadań
-let taskList = [
-    // Przykłady zadań
-    {task: "zadanie 1", price: "100.95"},
+let taskList = [ // Task list
+    {task: "zadanie 1", price: "100.95"}, // Exemplary tasks
     {task: "zadanie 2", price: "2000.16"},
     {task: "zadanie 3", price: "850"}
 ];
-// Pobranie elementów lista zadań, sum (całkowity koszt zadań) i euro
-let list = document.getElementById("list");
+let list = document.getElementById("list"); // Getting task list component and sum
 let sum = document.getElementById("sum");
 const eur = document.getElementById("eur");
-// URL do api z aktualną ceną EUR/PLN
-const url = 'https://api.exchangeratesapi.io/latest?base=EUR';
+const url = 'https://api.exchangeratesapi.io/latest?base=EUR'; // URL for api with current EUR/PLN currency
 let euro = 0;
-// Funkcja asynchroniczna zwracająca wartość 1 euro w przeliczeniu na PLN
-async function getapi(url){
+async function getapi(url){ // Async function converting 1 EUR to PLN
     const response = await fetch(url);
-    // Zapisanie danych w formacje JSON
     let data = await response.json();
     eur.innerHTML = `1 euro = ${data.rates.PLN}`;
     euro = data.rates.PLN;
 }
-// Wywołanie funkcji sprawdzjącej kurs euro
-getapi(url);
-// Wywołanie fukncji po załadowaniu się strony
+getapi(url); // Function call - getapi/createElements
 window.onload = function(){
-    // Wywołanie listy zadań
     createElements();
 }
-// Pobieranie danych od użytkownika (Nazwa zadania "task" i Ceny "price")
-function getData() {
+function getData() { // Getting user data (task name and price)
     let task = document.getElementById("task").value;
     let price = document.getElementById("price").value;
-    // Sprawdzenie czy zadanie ma min 5 znaków
-    if(task.length >= 5){
+    if(task.length >= 5){ // Checking if task name has at least 5 characters
         if(price == 0) {
             price = 0;
         }
-        // Resetowanie pól nazwy zadania i ceny zadania
-        document.getElementById("task").value = "";
+        document.getElementById("task").value = ""; 
         document.getElementById("price").value = "";
         document.getElementById("task").style.borderColor = "#E1E1E1";
-        // Dodanie nowego zadania do listy zadań 
-        taskList.push({task,price});
-        // Usunięcie komunikatu o błędzie nazwy zadania jeśli urzytkownik spełnił wymagań
+        taskList.push({task,price}); // Adding new task to the task list
         document.getElementById("taskEror").innerHTML = " ";
+        createElements();
     }else{
-        // Komunikat o błędzie nazwy zadania jeśli urzytkownik nie spełnił wymagań
-        document.getElementById("taskEror").innerHTML = "Nazwa zadania musi składać się z minimum 5 znaków.";
+        document.getElementById("taskEror").innerHTML = "Nazwa zadania musi składać się z minimum 5 znaków."; // Message with the task name error (if length of task name < 5 characters)
         document.getElementById("task").style.borderColor = "#FF4003";
     }
-    // Tworzenie nowego elementu - wypisanie nowego zadania na stronie
-    createElements();
 }
-// Funkcja odpowiedzialana za tworzenie nowego elementu na stronie
-function createElements() {
-    // Czyszczenie elementów list/sum
-    let sum_number = 0;
+function createElements() { // Function responsible for creating new component on the site
+    let sum_number = 0; // Reset task list/sum data
     list.innerHTML = "";
     sum.innerHTML = "";
-    // Zczytywanie zadania z listy zadań
-    for(i in taskList) {
+    for(i in taskList) { // Getting data from the task list
         let tr = document.createElement("tr");
-        // Przekazanie danych do tworzenia elementu
-        createList(tr, [i,taskList[i].task, parseFloat(taskList[i].price).toFixed(2), parseFloat(taskList[i].price/euro).toFixed(2)]);
-        // Wypisanie zadania na stronie
+        createList(tr, [i,taskList[i].task, parseFloat(taskList[i].price).toFixed(2), parseFloat(taskList[i].price/euro).toFixed(2)]); // Data transmission to createList function
         list.appendChild(tr);
-        // Zczytanie ceny danego zadaia
         sum_number += parseFloat(taskList[i].price);
     }
-    // Wypisanei sumy zadań na stronie
-    sum.appendChild(document.createTextNode(`Suma: ${sum_number.toFixed(2)} PLN (${(sum_number/euro).toFixed(2)} EUR)`));
+    sum.appendChild(document.createTextNode(`Suma: ${sum_number.toFixed(2)} PLN (${(sum_number/euro).toFixed(2)} EUR)`)); // Summing up prices
 }
-// Funkcja odpowiedzialna za tworzenie elementów td wraz z zawartością
-function createList(tr, data) {
+function createList(tr, data) { // Function responsible for creating new td components with content
     for(let i in data) {
         if(i==0){
             i++
         }else{
-            // Tworzenie elementu td wraz z zawartością
-            let td = document.createElement("td");
+            let td = document.createElement("td"); 
             if(i == 2) { 
                 td.appendChild(document.createTextNode(`${data[i]} PLN`));
                 
@@ -90,58 +65,46 @@ function createList(tr, data) {
             }else{
                 td.appendChild(document.createTextNode(data[i]));
             }
-            // Dodanie zawartości do elementu tr
-            tr.appendChild(td);
+            tr.appendChild(td); // Adding content to tr
         }
     }
-    //Dodanie przycisku usuń do zadania
-    tr.appendChild(createDelete(data[0]));
+    tr.appendChild(createDelete(data[0])); // Adding "delete" button
 }
-// Funkcja odpowiedzialna za tworzenie przycisku usuń
-function createDelete(id) {
-    // Tworzenie znacznika td z id
+function createDelete(id) { // Function responsible for creating "delete" button
     let del = document.createElement("td");
     del.setAttribute("id","delete");
-    // Tworzenie znacznika span z metodą on click
-    let span = document.createElement("span");
+    let span = document.createElement("span"); // Crating span component with onclick method
     span.setAttribute("onclick",`deleteDask(${id})`)
-    // Tworzenie znacznika i z atrybutem class odpowiednim za wyświetlenie ikonki "trash"
-    let icon = document.createElement("img");
+    let icon = document.createElement("img"); // Creating img component with "trash" icon 
     icon.setAttribute("src","assets/images/icons/trash-solid.svg");
-    // Ustawienie zawartości ddla znaczników span i td
     span.appendChild(icon);
     span.appendChild(document.createTextNode(" usuń"));
     del.appendChild(span);
     return del;
 }
-// Funkcja odpowiedzialna za udówanie rekordów z listy zadań
-function deleteDask(id) {
+function deleteDask(id) { // Function responsible for deleting records from task list
     taskList.splice(id, 1);
     createElements();
 }
-// Sortowanie ceny od największej
-function priceUp() {
+function priceUp() { // Sorting prices from highest
     taskList = taskList.sort(function (a,b) {
         return b.price - a.price;
     });
     createElements();
 }
-// Sortowanie ceny od najmniejszej
-function priceDown() {
+function priceDown() { // Sorting prices from the lowest
     taskList = taskList.sort(function (a,b) {
         return a.price - b.price;
     });
     createElements();
 }
-// Sortowanie zadań od A - Z
-function taskSortUp() {
+function taskSortUp() { // Sorting task list A - Z
     taskList = taskList.sort(function (a,b) {
         return a.task.localeCompare(b.task);
     });
     createElements(); 
 }
-// Sortowanie zadań od Z - A
-function taskSortDown() {
+function taskSortDown() { // Sorting task list from Z - A
     taskList = taskList.sort(function (a,b) {
         return b.task.localeCompare(a.task);
     });
