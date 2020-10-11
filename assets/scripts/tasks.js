@@ -107,7 +107,7 @@ function createDelete(id) {
     span.setAttribute("onclick",`deleteDask(${id})`)
     // Tworzenie znacznika i z atrybutem class odpowiednim za wyświetlenie ikonki "trash"
     let icon = document.createElement("img");
-    icon.setAttribute("src","/assets/images/icons/trash-solid.svg");
+    icon.setAttribute("src","assets/images/icons/trash-solid.svg");
     // Ustawienie zawartości ddla znaczników span i td
     span.appendChild(icon);
     span.appendChild(document.createTextNode(" usuń"));

@@ -32,7 +32,7 @@ function createWorkerList() {
 function createWorkerProfile(div, name, img) {
     // Tworzenie elementu img z atrybutami src (dodanie ścieżki do zdjęcia pracwonika)
     let imge = document.createElement("img");
-    imge.setAttribute("src", `/assets/images/user/${img}`);
+    imge.setAttribute("src", `assets/images/user/${img}`);
     // Tworzenie elementu span wraz z imieniem pracownika
     let span = document.createElement("span");
     span.innerHTML = name;

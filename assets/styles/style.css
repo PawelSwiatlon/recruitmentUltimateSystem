@@ -133,7 +133,7 @@ section {
   content: " ";
   right: 15px;
   top: 5;
-  background-image: url("/assets/images/icons/chevron-down-solid.svg");
+  background-image: url("../images/icons/chevron-down-solid.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -229,7 +229,7 @@ section {
   content: " ";
   right: 15px;
   top: 5;
-  background-image: url("/assets/images/icons/search-solid.svg");
+  background-image: url("../images/icons/search-solid.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -250,7 +250,7 @@ section {
   content: "";
   right: 15px;
   top: 5;
-  background-image: url("/assets/images/icons/check-solid.svg");
+  background-image: url("../images/icons/check-solid.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
